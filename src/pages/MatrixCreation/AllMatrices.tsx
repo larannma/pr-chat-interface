@@ -6,7 +6,6 @@ import { useGetMatricesQuery } from "@/store/api"
 import MatrixForm from "./MatrixForm"
 import MatrixCard from "./MatrixCard"
 
-
 export default function AllMatrices() {
   const { data, isLoading, error } = useGetMatricesQuery()
   const [dialogOpen, setDialogOpen] = useState(false)

@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { useGetEmployeesQuery } from "@/store/employeesApi";
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Tooltip, ResponsiveContainer } from "recharts";
 import { Button } from "@/components/ui/button";
+import { useGetEmployeesQuery } from "@/store/employeesApi";
 
-// Types
 export type CompetencyAnswer = { question: string; text?: string; audioUrl?: string };
 export type Competency = { name: string; score: number; answers?: CompetencyAnswer[] };
 export type Direction = { name: string; competencies: Competency[]; average?: number };

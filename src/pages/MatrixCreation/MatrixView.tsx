@@ -14,7 +14,9 @@ export default function MatrixView() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   if (isLoading) return <p className="p-6">Loading...</p>
-  if (error || !data) return <p className="p-6">Error loading matrix.</p>
+  if (error || !data || !data.length) return <p className="p-6">Error loading matrix.</p>
+
+  const matrix = data[0]
 
   const toggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index))
@@ -22,10 +24,12 @@ export default function MatrixView() {
 
   return (
     <div className="p-6 space-y-4">
-      {data[0].groups.map((group, index) => {
+      <h2 className="text-xl font-semibold mb-4">{matrix.title}</h2>
+
+      {matrix.groups.map((group, index) => {
         const isOpen = openIndex === index
         return (
-          <Collapsible key={index} open={isOpen}>
+          <Collapsible key={group.name} open={isOpen}>
             <Card
               onClick={() => toggle(index)}
               className="cursor-pointer transition hover:shadow-md"

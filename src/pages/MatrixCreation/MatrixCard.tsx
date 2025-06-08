@@ -20,7 +20,7 @@ export default function MatrixCard({ matrix }: { matrix: Matrix }) {
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground">
-          Groups: {matrix.groups.length}
+          Groups: {matrix.groups?.length ?? 0}
         </p>
       </CardContent>
     </Card>

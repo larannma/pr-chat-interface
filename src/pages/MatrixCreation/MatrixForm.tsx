@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { Plus, Trash2 } from "lucide-react"
 import { useCreateMatrixMutation } from "@/store/api"
 import type { Matrix } from "@/types"
+import { useNavigate } from "react-router-dom"
 
 type NewGroupInput = {
   name: string
@@ -25,6 +26,7 @@ export default function MatrixForm({ onSuccess }: { onSuccess: () => void }) {
     { name: "", description: "", type: "hard", skills: "" },
   ])
   const [createMatrix] = useCreateMatrixMutation()
+  const navigate = useNavigate() 
 
   const addGroup = () =>
     setGroups([...groups, { name: "", description: "", type: "hard", skills: "" }])
@@ -61,6 +63,7 @@ export default function MatrixForm({ onSuccess }: { onSuccess: () => void }) {
 
     const res = await createMatrix(newMatrix)
     if ("data" in res) {
+      navigate("/all-matrices")
       onSuccess()
       setTitle("")
       setGroups([{ name: "", description: "", type: "hard", skills: "" }])
