@@ -21,7 +21,7 @@ export default function AllMatrices() {
           <DialogTrigger asChild>
             <Button>
               <Plus className="mr-2 h-4 w-4" />
-              Новая матрица
+              Новая
             </Button>
           </DialogTrigger>
           <MatrixForm onSuccess={() => setDialogOpen(false)} />
