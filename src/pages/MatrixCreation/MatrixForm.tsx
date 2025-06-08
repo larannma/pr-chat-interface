@@ -40,7 +40,7 @@ export default function MatrixForm({ onSuccess }: { onSuccess: () => void }) {
     value: string
   ) => {
     const updated = [...groups]
-    updated[index][field] = value as 'soft' | 'hard'
+    updated[index][field] = value as "hard" | "soft" 
     setGroups(updated)
   }
 
